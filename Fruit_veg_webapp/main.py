@@ -3,7 +3,6 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 import plotly.express as px
-import os  # <-- Import os module to handle file paths
 
 # --- Page Config ---
 st.set_page_config(page_title="Calorie Estimator", layout="centered")
@@ -81,9 +80,8 @@ nutrition_data = pd.DataFrame({
 # --- Load Model Once ---
 @st.cache_resource
 def load_model():
-    # Fixing model path handling with os and pathlib for compatibility
-    model_path = os.path.join(os.getcwd(), "trained_model.h5")  # Make sure this points to your model
-    return tf.keras.models.load_model(model_path)
+    return tf.keras.models.load_model("trained_model.h5")
+
 
 model = load_model()
 
@@ -174,7 +172,6 @@ st.markdown("""
     <hr style="border-top: 1px solid #555;">
     <p style='text-align: center; color: #aaa;'>Powered by <strong>Nutrition Navigator</strong> | Smart Food Insights © 2025</p>
 """, unsafe_allow_html=True)
-
 
 
 
