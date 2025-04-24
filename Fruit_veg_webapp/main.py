@@ -109,7 +109,7 @@ if app_mode == "🏠 Home":
     
     Empower your nutrition knowledge — visually, instantly, and intelligently.
     """)
-    st.image("home_img.jpg", use_container_width=True, caption="Eat smart with image-based calorie prediction")
+    st.image("Fruit_veg_webapp/home_img.jpg", use_container_width=True, caption="Eat smart with image-based calorie prediction")
 
 elif app_mode == "🔍 Predict":
     st.title("📷 Image Prediction")
@@ -121,7 +121,7 @@ elif app_mode == "🔍 Predict":
         if st.button("Predict Now 🚀"):
             st.toast("Predicting...", icon="🤖")
             result_index = model_prediction(uploaded_image)
-            with open("labels.txt") as f:
+            with open("Fruit_veg_webapp/labels.txt") as f:
                 labels = [line.strip() for line in f.readlines()]
             predicted_label = labels[result_index].lower()
             st.session_state.predicted_label = predicted_label
