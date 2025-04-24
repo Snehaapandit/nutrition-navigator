@@ -80,7 +80,7 @@ nutrition_data = pd.DataFrame({
 # --- Load Model Once ---
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("trained_model.h5")
+    return tf.keras.models.load_model("Fruit_veg_webapp/trained_model.h5")
 
 
 model = load_model()
